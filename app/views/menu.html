@@ -1,0 +1,9 @@
+﻿<nav ng-controller="jmdMenu" class="main-menu">
+
+    <a ng-repeat="menuoption in menuoptions" 
+        ng-class="{ active: menuoption.active }"
+        href="{{ menuoption.url }}">
+        {{ menuoption.title }}
+    </a>
+
+</nav>

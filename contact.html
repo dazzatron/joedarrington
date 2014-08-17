@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html ng-app="jmdApp" ng-cloak class="no-js">
+<!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Joe Darrington</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/jmd.css">
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+</head>
+
+<body ng-controller="jmdSites">
+
+    <!--[if lt IE 10]>
+            <p class="browser-warning">
+            You are using an <strong>outdated</strong> browser. 
+            Please <a href="http://browsehappy.com/">upgrade your browser</a> or 
+            <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> 
+            to improve your experience.</p>
+        <![endif]-->
+
+    <div ng-include="'/app/views/menu.html'"></div>
+
+    <section class="section-wrapper">
+
+        <section class="section">
+
+            <article class="article">
+
+                <div class="article-inner">
+
+                    <div class="article-info">
+
+                        <h1 class="article-header">Feel free to contact me.
+                        </h1>
+                        <br />
+                        <br />
+
+                        <h2 class="article-subheader">
+                            <a href="http://www.twitter.com/jmditsolutions" target="_blank">@JMDITSolutions</a><br />
+                            <br />
+                            <a href="mailto:joedarrington@hotmail.com">joedarrington@hotmail.com</a>
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </section>
+
+    <script src="/js/vendor/angular.min.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/services/sharedData.js"></script>
+    <script src="/app/directives/directive.js"></script>
+    <script src="/app/directives/site.js"></script>
+    <script src="/app/controllers/controller.js"></script>
+    <script src="/app/controllers/menu.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+</body>
+
+</html>

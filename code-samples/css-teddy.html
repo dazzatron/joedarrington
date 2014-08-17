@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title></title>
+
+    <link href="/css/normalize.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <link href="/css/teddy.css" rel="stylesheet" />
+
+</head>
+
+
+<body ng-cloak ng-class="{ _8bit: _8bit, animate: animate }" ng-app="BearApp" ng-controller="BearCtrl">
+
+    <div class="options">
+
+    <label>
+    <select
+        ng-model="bear"
+        ng-options="bear for bear in bears">
+    </select>
+    </label>
+
+    <label>
+    <input type="checkbox"  />
+        Show animations
+    </label>
+
+    <label>
+    <input ng-model="_8bit" type="checkbox"  />
+        8 bit
+    </label>
+
+    </div>
+
+    <div class="teddy">
+
+        <div class="{{ bear }} eyes">
+        </div>
+
+        <div class="{{ bear }} ears">
+        </div>
+
+        <div class="{{ bear }} nose">
+        </div>
+
+        <div class="{{ bear }} face">
+        </div>
+
+        <div class="{{ bear }} body">
+
+            <div class="{{ bear }} arms">
+            </div>
+
+            <div class="{{ bear }} legs">
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/js/vendor/angular.min.js"></script>
+
+    <script>
+
+        angular.module('BearApp', [])
+
+        .controller('BearCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
+
+            $scope.bears = ['teddy','panda', 'hybrid'];
+            $scope.bear = $scope.bears[0];
+            $scope.animate = false;
+
+            $scope.$watch('bear', function () {
+
+                $scope.animate = false;
+
+                $timeout(function () {
+                    $scope.animate = true;
+                }, 50);
+
+                if ($scope.bear === 'hybrid') {
+                    alert("hybrid");
+                }
+
+            });
+
+        }]);
+
+    </script>
+
+</body>
+</html>

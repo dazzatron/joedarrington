@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app="jmdApp" ng-cloak class="no-js"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Joe Darrington</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/jmd.css">
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>     
+        <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>   
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+    </head>
+
+
+    <body ng-controller="jmdSites">
+
+        <!--[if lt IE 10]>
+            <p class="browser-warning">
+            You are using an <strong>outdated</strong> browser. 
+            Please <a href="http://browsehappy.com/">upgrade your browser</a> or 
+            <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> 
+            to improve your experience.</p>
+        <![endif]-->           
+
+        <div ng-include="'/app/views/date-scroller.html'"></div>
+
+        <div ng-include="'/app/views/menu.html'"></div>
+
+        <div class="section-wrapper">
+
+            <section class="section">         
+
+                <article class="article active">
+
+                    <div class="article-inner">
+
+                        <div class="article-info">
+                    
+                            <h1 class="article-header">A selection of sites by Joe Darrington <b>(beta!)</b></h1><br />
+                            
+                            <br />                             
+                            <h2 class="article-subheader">Scroll &darr;</h2>
+                            <br />
+
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <section class="section clearfix" ng-repeat="year in sites">
+
+                <h1 class="section-header">
+                
+                <span class="section-header-title">
+                {{ year.value }} {{ jmdSharedData }}
+                </span>
+
+                </h1>
+
+                <article class="article" 
+                    ng-style="{ 'border-color': site.bgcolour }" 
+                    data-bgcolour="{{site.bgcolour}}" 
+                    data-fgcolour="{{site.fgcolour}}" 
+                    data-month="{{ site.month }}" 
+                    ng-repeat="site in year.site">
+
+                    <div class="article-underlay" ng-style="{ 'background-color' : site.bgcolour }"></div>
+
+                    <div class="article-inner" ng-style="{ 'color': site.fgcolour }">
+
+                        <div class="article-info">
+                    
+                            <h2 class="article-header" ng-style="{ 'color': site.bgcolour }">{{ site.title }}</h2><br />
+                            <h3 class="article-subheader">{{ site.subtitle }}</h3>                
+
+                            <p>
+                                {{ site.text }}                       
+                            </p>
+
+                            <div ng-if="site.techs">
+
+                                <br />
+
+                                Key techs used: <br /><br />
+
+                                <ul>
+
+                                    <li ng-repeat="(key, value) in site.techs">
+                                        {{ value }}
+                                    </li>
+
+                                </ul>
+
+                                <br />
+
+                            </div>
+
+                            <br />
+
+                            <a ng-if="site.url" href="{{ site.url }}" class="chunky-button1">
+                                <span ng-if="site.urlText">{{ site.urlText }}</span>
+                                <span ng-if="!site.urlText">Visit {{ site.title }}</span>&rarr;
+                            </a>
+
+                            <h3 ng-if="!site.url" >Coming soon!</h3>
+
+                        </div>
+                        
+                        <div class="article-image">
+                            <img ng-src=/img/{{site.img}} />
+                        </div>                      
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </div>
+
+        <script src="/js/vendor/angular.min.js"></script>
+        <script src="/app/app.js"></script>
+        <script src="/app/services/sharedData.js"></script>
+        <script src="/app/directives/site.js"></script>
+        <script src="/app/controllers/controller.js"></script>
+        <script src="/app/controllers/menu.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="/js/vendor/jquery.mousewheel.js"></script>
+        <script src="/js/main-new.js"></script>
+
+    </body>
+
+</html>

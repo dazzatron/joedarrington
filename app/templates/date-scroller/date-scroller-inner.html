@@ -1,0 +1,12 @@
+﻿<span>
+
+    <span 
+        ng-if="jmdSharedResource.month !== month" >{{ month }}
+    </span>
+
+    <span 
+        ng-if="jmdSharedResource.month == month" 
+        style="color: rgb({{ jmdSharedResource.bgcolour }})">{{ month }}
+    </span>
+
+</span>

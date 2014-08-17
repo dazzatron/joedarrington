@@ -1,0 +1,381 @@
+﻿@font-face {
+    font-family: 'quicksandlight';
+    src: url('/fonts/quicksand-light-webfont.eot');
+    src: url('/fonts/quicksand-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/quicksand-light-webfont.woff') format('woff'),
+         url('/fonts/quicksand-light-webfont.ttf') format('truetype'),
+         url('/fonts/quicksand-light-webfont.svg#quicksandlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('/fonts/bebasneue-webfont.eot');
+    src: url('/fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/bebasneue-webfont.woff') format('woff'),
+         url('/fonts/bebasneue-webfont.ttf') format('truetype'),
+         url('/fonts/bebasneue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background:#444;
+}
+
+::-webkit-scrollbar-thumb {
+    background:#111;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+html {
+    height:100%;
+    padding:0;
+    margin:0;
+    background:#111;
+}
+
+body {
+    margin:0;
+    overflow-x:hidden;
+    padding:0;
+}
+
+.browser-warning {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    color:#fff;
+    background:#222;
+    z-index:999;
+    padding:200px;
+    margin:0;
+    text-align:center;
+}
+
+.float-right {
+    float:right !important;
+}
+
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 20px;
+    z-index: 11;
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
+    height:50px;
+    line-height:50px;
+    font-size:18px;
+    font-family:quicksandlight;
+    letter-spacing:-2px;
+    box-shadow:10px 10px 50px rgba(0,0,0,.8);
+}
+
+.main-menu.hidden {
+    top:-60px;
+}
+
+.main-menu a {
+    background: #333;
+    padding: 0 20px;
+    color: #fff;
+    display: block;
+    float:left;
+    border: 0;
+}
+
+.main-menu a.active {
+    background:#fff;
+    color:#000;
+    font-weight:bold;
+}
+
+ul {
+    margin:0;
+    padding-left:1em;
+    font-size:13px;
+}
+
+a {
+    color:#fff;
+    text-decoration:none;
+    font-weight:normal;
+}
+
+a:hover {
+    border-bottom:1px solid #fff;
+}
+
+.sidebar {
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:20px;
+    transition: 1000ms; 
+}
+
+.section-wrapper {
+    transition: 1000ms opacity, -webkit-transform 1000ms; 
+}
+
+.section {
+    position:relative;
+}
+
+.section-header {
+    color:#ff3;
+    font-size:80px;
+    font-weight:normal;
+    font-family:quicksandlight;
+    position:absolute;
+    top:0;
+    bottom:auto;
+    margin:0;
+    right:0;
+    -webkit-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    z-index:10;
+    background:rgba(0,0,0,.5);
+    padding:0;
+    height:100px;
+}
+
+.section-header-title {
+    line-height:100px;
+    display:block;
+    float:left;
+    padding:0 20px;
+}
+
+.section-date-wrapper {
+    color:#333;
+    font-size:20px;
+    display:block;
+    line-height:50px;
+    position:fixed;
+    top:0;
+    right:0;
+    transition: 200ms 200ms all;
+    z-index:10;
+    font-family:quicksandlight;
+    font-weight:bold;
+    background:rgba(0,0,0,.2);
+    margin-top:80px;
+    transform: translateY(100%);
+}
+
+.section-date-wrapper > :first-child {
+    border:0;
+}
+
+.section-date {
+    padding: 30px 20px;
+    position:relative;
+    transition: transform 1s;
+    clear:both;
+    display:block;
+    position:relative;
+    float:left;
+    color:#444;
+}
+
+.section-date:after {
+    content:"";
+    position:absolute;
+    top:50%;
+    right:100%;
+    height:0;
+    width:60px;
+    border-bottom:1px solid #333;
+}
+
+.section-date-active {
+    color:#ff3;
+    -webkit-transition: 1000ms;
+    -moz-transition: 1000ms;
+    transition: 1000ms;
+    font-weight:bold;
+}
+
+.section-date-active:after {
+    border-color: #eee;
+}
+
+.article {
+    height:125vh;
+    width:100%;
+    display:table;
+    padding: 20px 10% 20px 5%;
+    color:#eee;
+    -webkit-transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    position:relative;
+    box-shadow:0 10px 50px rgba(0,0,0,.8);
+    border-left:20px solid;
+    position:relative;
+    z-index:1;
+    overflow:hidden;
+}
+
+.article-underlay {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    opacity:.1;
+}
+
+.article-inner {
+    display:table-cell;
+    vertical-align:middle;
+    z-index:2;
+    position:relative;
+}
+
+.article-header {
+    font-size:35.8px;
+    font-weight:normal;
+    font-family:quicksandlight;
+    display:inline-block;
+    margin:15px 0;
+    padding:0;
+}
+
+.article-subheader {
+    font-size:22.4px;
+    font-weight:normal;
+    font-family:quicksandlight;
+    display:inline-block;
+    margin:0;
+    padding:0;
+}
+
+.article-image {
+    float:left;
+    width:50%;
+    -webkit-perspective:800px;
+    perspective:800px;
+    opacity:0;
+    -webkit-transform:scale(.9);
+    -webkit-transition: 1500ms 1000ms;
+}
+
+.article.active .article-image {
+    -webkit-transform:scale(1);
+    opacity:1;
+}
+
+.article-image img {
+    width:100%;
+    height:100%;
+    -webkit-transform: rotateY(-5deg);
+    -moz-transform: rotateY(-5deg);
+    transform: rotateY(-5deg);
+}
+
+.article-info {
+    width:35%;
+    font-size:14px;
+    float:left;
+    margin-right:5%;
+    -webkit-transition:500ms;
+    opacity:0;
+    -webkit-transform: translateX(-10%);
+}
+
+.article.active .article-info {
+    -webkit-transform: translateX(0);
+    opacity:1;
+}
+
+.chunky-button1 {
+    padding:15px;
+    background:#ff3;
+    color:#333;
+    text-decoration:none;
+    white-space:nowrap;
+    transition: background 300ms;
+    display:inline-block
+}
+
+
+
+.chunky-button1:hover {
+    background:#cc0;
+    color:#fff;
+}
+
+@media only screen and (max-width: 960px) {
+
+    .article-info {
+        width: 90%;
+        margin: 20px 5% 0;
+    }
+
+    .article-image {
+        width:80%;
+        margin: 20px 5%;
+    }
+
+    .article-image img {
+        -webkit-transform: rotateY(0);
+        -moz-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+
+    .section-date-wrapper, .section-header {
+        display:none;
+    }
+
+}
+
+.experiment-wrapper {
+    margin:100px auto;
+    font-family:quicksandlight;
+    padding:0 20px;
+}
+
+.experiment-wrapper h1 {
+    color:#fff;
+}
+
+.experiment {
+    padding:20px;
+    max-width:800px;
+    height:150px;
+    background:#fff;
+    margin:50px auto;
+}
+
+.experiment h2 {
+    margin:0;
+}
+
+.experiment a {
+    color:#333;
+}
+

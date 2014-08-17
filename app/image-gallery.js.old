@@ -1,0 +1,59 @@
+﻿angular.module('jmdApp.controllers', [])
+
+.controller('jmdImageGallery', function ($scope) {
+
+    var images = $scope.images = [];
+
+    $scope.addImages = function () {
+
+        images.push({
+            image: "/img/adrn.jpg",
+            caption: "adrn"
+        });
+
+        images.push({
+            image: "/img/icem.jpg",
+            caption: "icem"
+        });
+
+        images.push({
+            image: "/img/hot-tub-assist.jpg",
+            caption: "hot tub assist"
+        });
+
+        images.push({
+            image: "/img/ibe.jpg",
+            caption: "A&K"
+        });
+
+        images.push({
+            image: "/img/sanctuary-retreats.jpg",
+            caption: "sanctuary retreats"
+        });
+
+        images.push({
+            image: "/img/ukds.jpg",
+            caption: "ukds"
+        });
+
+        images.push({
+            image: "/img/discover-ukds.jpg",
+            caption: "discovery"
+        });
+
+        images.push({
+            image: "/img/ukds.jpg",
+            caption: "hotspring world"
+        });
+
+        images.push({
+            image: "/img/systembridge-1.jpg",
+            caption: "systembridge"
+        });
+
+    };
+
+    $scope.addImages();
+    //$scope.addImages();
+
+});

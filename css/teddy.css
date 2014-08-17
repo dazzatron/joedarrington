@@ -1,0 +1,387 @@
+﻿._8bit *, ._8bit *:after, ._8bit *:before {
+    border-radius: 0 !important;}
+
+html {
+    background: #84888b;
+}
+
+.teddy {
+            
+    position: relative;
+    perspective: 800;
+}
+
+@-webkit-keyframes eyes {
+    0% {
+        -webkit-transform: scaleY(1);
+    }
+
+    18% {
+        -webkit-transform: scaleY(1);
+    }
+
+    20% {
+        -webkit-transform: scaleY(0);
+    }
+
+    22% {
+        -webkit-transform: scaleY(1);
+    }
+
+    100% {
+        -webkit-transform: scaleY(1);
+    }
+}
+
+/**********************************/
+/*ears*/
+/**********************************/
+
+.teddy .ears {
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+
+.teddy .ears:before, .teddy .ears:after {
+    content: "";
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #db8961;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0 0 0 15px #c78d5f, 0 0 50px rgba(0,0,0,.1) inset;
+}
+
+.teddy .ears:before {
+    left: -120px;
+}
+
+.teddy .ears:after {
+    left: 50px;
+}
+
+.teddy .panda.ears:before, .teddy .panda.ears:after {
+    box-shadow: 0 0 0 30px #080808;
+}
+
+.teddy.jelly .ears:before, .teddy.jelly .ears:after {
+    box-shadow: 0 0 0 25px rgba(255,0,0,.8), 0 0 0 0 15px #c00;
+}
+/**********************************/
+/*ears end*/
+/**********************************/
+
+/**********************************/
+/*face*/
+/**********************************/
+.teddy .face {
+    width: 250px;
+    height: 230px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    margin-left: -125px;
+    background: #c78d5f;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    -webkit-transition: 500ms;
+    transition: 500ms;
+    -webkit-transform:translate3d(0,0,0);
+}
+
+.teddy .face:hover {
+    -webkit-transform: rotateZ(5deg);
+}
+
+.teddy .face:hover .ears {
+    z-index: -1;
+}
+
+.teddy .panda.face {
+    background: #fef4ea;
+}
+
+.teddy.jelly .face {
+    border-radius:40%;
+    background: rgba(255,0,0,.5);
+}
+
+/**********************************/
+/*face end*/
+/**********************************/
+
+/**********************************/
+/*eyes*/
+/**********************************/
+.teddy .eyes {
+    left: 50%;
+    top: 80px;
+    z-index: 2;
+    position: absolute;
+    -webkit-backface-visibility:hidden;
+}
+
+.animate .teddy .eyes {
+    -webkit-animation: eyes infinite 5000ms;
+}
+
+.teddy .panda.eyes:before, .teddy .panda.eyes:after {
+    box-shadow: 0 0 0 20px #fff, 0 0 0 40px #080808;
+    border-radius: 40%;
+    background: #000;
+    -webkit-backface-visibility:hidden;
+}
+
+.teddy.jelly .eyes:before, .teddy.jelly .eyes:after {
+    background: #c00;
+}
+
+.teddy .panda.eyes:before {
+    -webkit-transform: rotateZ(20deg);
+}
+
+.teddy .panda.eyes:after {
+    -webkit-transform: rotateZ(-20deg);
+}
+
+.teddy .eyes:before, .teddy .eyes:after {
+    content: "";
+    border-radius: 50%;
+    background: #000;
+    width: 20px;
+    height: 20px;
+    margin-top:-10px;
+    position: absolute;
+    -webkit-transition: 500ms all cubic-bezier(.5,.25,751,1.25);
+    transition: 500ms all cubic-bezier(.5,.25,751,1.25);
+}
+
+.teddy .eyes:before {
+    left: -55px;
+}
+
+.teddy .eyes:after {
+    left: 35px;
+}
+/**********************************/
+/*eyes end*/
+/**********************************/
+
+/**********************************/
+/*nose */
+/**********************************/
+.teddy .nose {
+    -webkit-transform-origin: 45% 0%;
+    border-radius: 50%;
+    width: 150px;
+    height: 100px;
+    background: #db8961;
+    position: absolute;
+    top: 115px;
+    left: 50%;
+    margin-left: -75px;
+    -webkit-transition: 500ms;
+    transition: 500ms;
+    z-index:1;
+    -webkit-backface-visibility:hidden;
+}
+
+.teddy .panda.nose {
+    background: #fff;
+    width: 150px;
+    height: 100px;
+}
+
+.teddy.jelly .nose {
+    background: #f00;
+    width: 150px;
+    height: 100px;
+}
+
+.teddy .nose:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 60px;
+    height: 50px;
+    margin-left: -30px;
+    top: 10%;
+    background: #664d53;
+    border-radius: 50%;
+}
+
+.teddy .panda.nose:after {
+    background: #080808;
+}
+
+.teddy.jelly .nose:after {
+    background: #c00;
+}
+
+.teddy .nose:before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    background: rgba(255,255,255,.2);
+    width: 20px;
+    height: 10px;
+    border-radius: 50%;
+    z-index: 2;
+    margin-left: -10px;
+}
+/**********************************/
+/*nose end*/
+/**********************************/
+
+
+/**********************************/
+/*body start*/
+/**********************************/
+.teddy .body {
+    border-radius: 50%;
+    width: 300px;
+    height: 280px;
+    background: #c78d5f;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    margin-left: -150px;
+    z-index: -1;
+    -webkit-transition: 500ms;
+    transition: 500ms;
+}
+
+.teddy .panda.body {
+    background: #fef4ea;
+    border-radius: 40%;
+}
+
+.teddy.jelly .body {
+    background: rgba(255,0,0,0.5);
+    border-radius: 30%;
+}
+/**********************************/
+/*body end*/
+/**********************************/
+
+
+/**********************************/
+/*arms*/
+/**********************************/
+.teddy .arms {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    z-index: -1;
+}
+
+.teddy .arms:before, .teddy .arms:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    background: #c78d5f;
+    width: 100px;
+    height: 100px;
+    -webkit-transition:500ms;
+    transition:500ms;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+
+.teddy .panda.arms:before, .teddy .panda.arms:after {
+    background: #080808;
+}
+
+.teddy.jelly .arms:before, .teddy.jelly .arms:after {
+    background: rgba(255,0,0,.2);
+}
+
+.teddy .arms:before {
+    margin-left: -170px;
+}
+
+.teddy .arms:after {
+    margin-left: 70px;
+}
+
+.teddy .panda.arms {
+    background: #080808;
+    box-shadow: 240px 0 0 #080808;
+}
+/**********************************/
+/*arms*/
+/**********************************/
+
+
+
+
+
+/**********************************/
+/*legs */
+/**********************************/
+.teddy .legs {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+}
+
+.teddy .legs:after, .teddy .legs:before {
+    content: "";
+    border-radius: 50%;
+    background: #db8961;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 0 20px #c78d5f, 0 0 20px 20px rgba(0,0,0,.1), 0 0 50px rgba(0,0,0,.1) inset;
+    top: 0;
+    position: absolute;
+    -webkit-transition:500ms;
+    transition:500ms;
+}
+
+.teddy .legs:before {
+    margin-left: -150px;
+}
+
+.teddy .legs:after {
+    margin-left: 50px;
+}
+
+.teddy .panda.legs:after, .teddy .panda.legs:before {
+    box-shadow: 0 0 0 20px #080808, 0 0 20px 20px rgba(0,0,0,.05);
+    background: #080808;
+}
+
+.teddy.jelly .legs:after, .teddy.jelly .legs:before {
+    box-shadow: 0 0 0 20px rgba(255,0,0,.2), 0 0 20px 20px rgba(0,0,0,.05);
+    background: #f00;
+}
+/**********************************/
+/*legs end*/
+/**********************************/
+
+.options {
+    margin:50px auto 80px;
+    width:600px;
+    overflow:hidden;
+    font-size:20px;
+    color:#fff;
+    font-family:Arial;
+}
+
+.options label {
+    text-align:center;
+    float:left;
+    width:33.3333%;
+    height:40px;
+    line-height:40px;
+}
+
+.options select {
+    font-size:20px;
+    padding: 0 10px;
+    height:40px;
+}

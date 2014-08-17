@@ -1,0 +1,57 @@
+﻿<div ng-transclude>
+
+    <article class="article">
+
+        <div class="article-underlay" style="background: rgb({{ site.bgcolour }})"></div>
+
+        <div class="article-inner" style="color: {{ site.fgcolour }}">
+
+            <div class="article-info">
+
+                <h2 class="article-header" style="color: rgb({{ site.bgcolour }})">{{ site.title }}</h2>
+                <br />
+                <h3 class="article-subheader">{{ site.subtitle }}</h3>
+
+                <p>
+                    {{ site.text }}                       
+                </p>
+
+                <div ng-if="site.techs">
+
+                    <br />
+
+                    Key techs used:
+                        <br />
+                    <br />
+
+                    <ul>
+
+                        <li ng-repeat="(key, value) in site.techs">{{ value }}
+                        </li>
+
+                    </ul>
+
+                    <br />
+
+                </div>
+
+                <br />
+
+                <a ng-if="site.url" href="{{ site.url }}" class="chunky-button1">
+                    <span ng-if="site.urlText">{{ site.urlText }}</span>
+                    <span ng-if="!site.urlText">Visit {{ site.title }}</span>&rarr;
+                </a>
+
+                <h3 ng-if="!site.url">Coming soon!</h3>
+
+            </div>
+
+            <div class="article-image">
+                <img ng-src="/img/{{site.img}}" />
+            </div>
+
+        </div>
+
+    </article>
+
+</div>

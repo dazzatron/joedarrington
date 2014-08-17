@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <link href="/css/normalize.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 18px;
+        }
+
+        select {
+            margin-top: 5px;
+            font-size: 18px;
+            text-transform: capitalize;
+        }
+
+        a {
+            color:#333;
+            float:right;
+        }
+
+        label {
+            color:#333;
+        }
+
+        p {
+            margin-top: 30px;
+        }
+
+        .page-wrapper {
+            margin: 50px auto;
+            width: 320px;
+        }
+
+        .app-wrapper {
+            background: #fff;
+            box-shadow: 0 1px 2px rgba(0,0,0,.1);
+            border: 1px solid #eee;
+            overflow: hidden;
+            padding: 20px;
+            margin-bottom:20px;
+        }
+
+        body {
+            background: #fefefe;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 20px 0;
+            color:#333;
+        }
+
+    </style>
+
+    <script src="/js/vendor/angular.min.js"></script>
+
+    <script>
+
+        angular.module('CascadingDropdownsApp', [])
+
+        .controller('CascadingDropdownsCtrl', ['$scope', function ($scope) {
+
+            $scope.continents =
+            [
+
+                {
+                    name: 'europe',
+                    countries: [
+                        {
+                            name: 'united kingdom', cities: [
+                                'london', 'manchester', 'birmingham'
+                            ]
+                        },
+                        {
+                            name: 'spain', cities: [
+                                'madrid', 'malaga', 'barcelona'
+                            ]
+
+                        },
+                        {
+                            name: 'france', cities: [
+                                'paris', 'marseille', 'leon'
+                            ]
+
+                        }
+                    ]
+
+                },
+                {
+                    name: 'asia',
+                    countries: [
+                        {
+                            name: 'afghanistan', cities: [
+                                'kabul', 'kandahar', 'herat'
+                            ]
+                        },
+                        {
+                            name: 'bangladesh', cities: [
+                                'chittagong', 'rajshahi', 'khulna'
+                            ]
+                        },
+                        {
+                            name: 'china', cities: [
+                                'beijing', 'shanghai', 'hong kong'
+                            ]
+                        }
+                    ]
+
+                }
+
+            ];
+
+            $scope.selectedContinent = $scope.continents[0];
+
+            angular.forEach($scope.continents, function (continent) {
+
+                continent.selectedCountry = continent.countries[0]
+
+                angular.forEach(continent.countries, function (country) {
+                    country.selectedCity = country.cities[0]
+                });
+
+            });
+
+        }]);
+
+    </script>
+
+    <div class="page-wrapper">
+
+        <a href="/">&larr; back to joedarrington.com</a>
+
+        <br /><br />
+
+        <div class="app-wrapper" ng-app="CascadingDropdownsApp" ng-controller="CascadingDropdownsCtrl">
+
+            <h1>Cascading Dropdowns in AngularJS.</h1>
+
+            <p>
+
+                <label>
+                    Continent:<br />
+                    <select
+                        ng-model="selectedContinent"
+                        ng-options="continent.name for continent in continents">
+                    </select>
+                </label>
+
+            </p>
+
+            <p>
+
+                <label>
+                    Country:<br />
+                    <select
+                        ng-model="selectedContinent.selectedCountry"
+                        ng-options="country.name for country in selectedContinent.countries">
+                    </select>
+                </label>
+
+            </p>
+            <p>
+
+                <label>
+                    City:<br />
+                    <select
+                        ng-model="selectedContinent.selectedCountry.selectedCity"
+                        ng-options="city for city in selectedContinent.selectedCountry.cities">
+                    </select>
+                </label>
+
+            </p>
+
+        </div>
+
+    <a href="http://plnkr.co/edit/RuSmGfC1iIvApzUvGl69?p=preview" target="_blank">View in Plunker</a>
+
+    </div>
+
+
+</body>
+</html>
