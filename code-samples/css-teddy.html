@@ -20,12 +20,13 @@
         ng-model="bear"
         ng-options="bear for bear in bears">
     </select>
+
     </label>
 
-    <label>
+<!--    <label>
     <input type="checkbox"  />
         Show animations
-    </label>
+    </label>-->
 
     <label>
     <input ng-model="_8bit" type="checkbox"  />
@@ -68,7 +69,7 @@
 
         .controller('BearCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 
-            $scope.bears = ['teddy','panda', 'hybrid'];
+            $scope.bears = ['teddy', 'panda'];//, 'hybrid'];
             $scope.bear = $scope.bears[0];
             $scope.animate = false;
 
@@ -80,9 +81,9 @@
                     $scope.animate = true;
                 }, 50);
 
-                if ($scope.bear === 'hybrid') {
-                    alert("hybrid");
-                }
+                //if ($scope.bear === 'hybrid') {
+                //    alert("hybrid");
+                //}
 
             });
 
