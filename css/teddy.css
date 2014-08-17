@@ -3,6 +3,18 @@
 
 html {
     background: #84888b;
+    font-family: 'McLaren', cursive;
+}
+
+h1 {
+text-align:center;
+}
+
+a {
+    color:#fff;
+    display:block;
+    margin:10px 0;
+    text-align:center;
 }
 
 .teddy {

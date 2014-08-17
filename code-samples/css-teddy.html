@@ -7,15 +7,21 @@
     <link href="/css/normalize.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
     <link href="/css/teddy.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=McLaren' rel='stylesheet' type='text/css'>
 
 </head>
 
 
 <body ng-cloak ng-class="{ _8bit: _8bit, animate: animate }" ng-app="BearApp" ng-controller="BearCtrl">
 
+    <a href="/experiments.html">&larr; back to experiments</a>
+
+    <h1>CSS3 Bear</h1>
+
     <div class="options">
 
     <label>
+        Mode: 
     <select
         ng-model="bear"
         ng-options="bear for bear in bears">
@@ -29,6 +35,7 @@
     </label>-->
 
     <label>
+
     <input ng-model="_8bit" type="checkbox"  />
         8 bit
     </label>
@@ -62,34 +69,7 @@
     </div>
 
     <script src="/js/vendor/angular.min.js"></script>
-
-    <script>
-
-        angular.module('BearApp', [])
-
-        .controller('BearCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
-
-            $scope.bears = ['teddy', 'panda'];//, 'hybrid'];
-            $scope.bear = $scope.bears[0];
-            $scope.animate = false;
-
-            $scope.$watch('bear', function () {
-
-                $scope.animate = false;
-
-                $timeout(function () {
-                    $scope.animate = true;
-                }, 50);
-
-                //if ($scope.bear === 'hybrid') {
-                //    alert("hybrid");
-                //}
-
-            });
-
-        }]);
-
-    </script>
+    <script src="/js/css-teddy.js"></script>
 
 </body>
 </html>

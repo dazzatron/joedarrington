@@ -58,6 +58,19 @@ body {
     padding:0;
 }
 
+.source-code {
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#eee;
+    color:#111;
+    text-decoration:none;
+    display:block;
+    padding:5px;
+    z-index:100;
+    font-size:11px;
+}
+
 .browser-warning {
     position:fixed;
     top:0;
@@ -70,6 +83,10 @@ body {
     padding:200px;
     margin:0;
     text-align:center;
+}
+
+.intro {
+    color:#fff;
 }
 
 .float-right {
@@ -137,7 +154,7 @@ a:hover {
 }
 
 .section-wrapper {
-    transition: 1000ms opacity, -webkit-transform 1000ms; 
+    transition: 1000ms all; 
 }
 
 .section {
@@ -155,6 +172,7 @@ a:hover {
     margin:0;
     right:0;
     -webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
     transform:translate3d(0,0,0);
     z-index:10;
     background:rgba(0,0,0,.5);
@@ -230,6 +248,7 @@ a:hover {
     padding: 20px 10% 20px 5%;
     color:#eee;
     -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
     transform: translate3d(0, 0, 0);
     position:relative;
     box-shadow:0 10px 50px rgba(0,0,0,.8);
@@ -277,14 +296,21 @@ a:hover {
 .article-image {
     float:left;
     width:50%;
-    -webkit-perspective:800px;
-    perspective:800px;
     opacity:0;
+    -webkit-perspective:800px;
     -webkit-transform:scale(.9);
     -webkit-transition: 1500ms 1000ms;
+    -moz-perspective:800px;
+    -moz-transform:scale(.9);
+    -moz-transition: 1500ms 1000ms;
+    perspective:800px;
+    transform:scale(.9);
+    transition: 1500ms 1000ms;
 }
 
 .article.active .article-image {
+    -webkit-transform:scale(1);
+    -moz-transform:scale(1);
     -webkit-transform:scale(1);
     opacity:1;
 }
@@ -303,12 +329,18 @@ a:hover {
     float:left;
     margin-right:5%;
     -webkit-transition:1000ms;
-    opacity:0;
     -webkit-transform: translateX(-50px);
+    -moz-transition:1000ms;
+    -moz-transform: translateX(-50px);
+    transition:1000ms;
+    transform: translateX(-50px);
+    opacity:0;
 }
 
 .article.active .article-info {
     -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    transform: translateX(0);
     opacity:1;
 }
 
@@ -371,11 +403,15 @@ a:hover {
     margin:50px auto;
     display:block;
     -webkit-transition:500ms;
+    -moz-transition:500ms;
+    transition:500ms;
     position:relative;
 }
 
 .experiment:hover {
     -webkit-transform:scale(1.02);
+    -moz-transform:scale(1.02);
+    transform:scale(1.02);
 }
 
 .experiment h2 {
