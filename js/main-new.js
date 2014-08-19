@@ -182,7 +182,7 @@
 
     }
 
-    $(window).on("load", function () {        
+    $(window).on("reload", function () {
         
         article = $(".article");
         sectionHeader = $(".section-header");
