@@ -1,28 +1,15 @@
 ﻿angular.module('jmdApp.controllers')
 
-.controller('jmdMenu', ['$scope', '$location', function ($scope, $location) {
+.controller('jmdMenu', ['$scope', '$location', 'jmdSharedFactory', function ($scope, $location, jmdSharedFactory) {
 
-    $scope.menuoptions = [
-    {
-        "url": "/index.html",
-        "title": "Joe Darrington"
-    },
-    {
-        "url": "/experiments.html",
-        "title": "Experiments"
-    },
-    {
-        "url": "/contact.html",
-        "title": "Contact"
-    }
-    ]
+    $scope.menuoptions = jmdSharedFactory.getMenuOptions();
 
     var url = $location.absUrl();
-    var urlLastIndex = url.lastIndexOf("/");
+    url = url.substr(urlLastIndex, url.length - url.lastIndexOf("/"));
     var found = false;
-    url = url.substr(urlLastIndex, url.length - urlLastIndex);
+    var i = $scope.menuoptions.length;
 
-    for (var i = 0, length = $scope.menuoptions.length; i < length; i++) {
+    while (i--) {
 
         if ($scope.menuoptions[i].url == url) {
             $scope.menuoptions[i].active = true;

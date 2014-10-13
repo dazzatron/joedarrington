@@ -26,9 +26,27 @@
         ];
     }
 
+    var getMenuOptions = function () {
+        return [
+            {
+                "url": "/index.html",
+                "title": "Joe Darrington"
+            },
+            {
+                "url": "/experiments.html",
+                "title": "Experiments"
+            },
+            {
+                "url": "/contact.html",
+                "title": "Contact"
+            }
+        ]
+    }
+
     return ({
         getSites: getSites,
-        getMonths: getMonths
+        getMonths: getMonths,
+        getMenuOptions: getMenuOptions
     });
 
 }]);
