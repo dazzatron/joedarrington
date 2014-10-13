@@ -5,7 +5,7 @@
     $scope.menuoptions = jmdSharedFactory.getMenuOptions();
 
     var url = $location.absUrl();
-    url = url.substr(urlLastIndex, url.length - url.lastIndexOf("/"));
+    url = url.substr(url.lastIndexOf("/"), url.length - url.lastIndexOf("/"));
     var found = false;
     var i = $scope.menuoptions.length;
 
