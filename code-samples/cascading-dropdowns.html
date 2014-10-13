@@ -10,8 +10,6 @@
 </head>
 <body>
 
-    <script src="/js/vendor/angular.min.js"></script>
-
     <div class="page-wrapper">
 
         <a href="/">&larr; back to joedarrington.com</a>
@@ -21,14 +19,15 @@
         <div class="app-wrapper" ng-app="CascadingDropdownsApp" ng-controller="CascadingDropdownsCtrl">
 
             <h1>Cascading Dropdowns in AngularJS.</h1>
+            <h2>w/ local storage persistence (hit f5)</h2>
 
             <p>
 
                 <label>
                     Continent:<br />
                     <select
-                        ng-model="selectedContinent"
-                        ng-options="continent.name for continent in continents">
+                        ng-model="model.selectedContinent"
+                        ng-options="continent.name for continent in model.continents track by continent.id">
                     </select>
                 </label>
 
@@ -39,8 +38,8 @@
                 <label>
                     Country:<br />
                     <select
-                        ng-model="selectedContinent.selectedCountry"
-                        ng-options="country.name for country in selectedContinent.countries">
+                        ng-model="model.selectedContinent.selectedCountry"
+                        ng-options="country.name for country in model.selectedContinent.countries track by country.id">
                     </select>
                 </label>
 
@@ -50,8 +49,8 @@
                 <label>
                     City:<br />
                     <select
-                        ng-model="selectedContinent.selectedCountry.selectedCity"
-                        ng-options="city for city in selectedContinent.selectedCountry.cities">
+                        ng-model="model.selectedContinent.selectedCountry.selectedCity"
+                        ng-options="city for city in model.selectedContinent.selectedCountry.cities">
                     </select>
                 </label>
 
@@ -64,9 +63,9 @@
 
 
     </div>
-
+    <script src="/js/vendor/angular.min.js"></script>
+    <script src="/js/vendor/angular-local-storage.min.js"></script>
     <script src="/js/cascading-dropdowns.js"></script>
-
 
 </body>
 </html>

@@ -1,0 +1,21 @@
+﻿.page-wrapper {
+    width:280px;
+    height:350px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-140px;
+    margin-top:-175px;
+}
+
+.image-wrapper {
+    position:absolute;
+    overflow:hidden;
+}
+
+img {
+    position:relative;
+    width:280px;
+    height:350px;
+    -webkit-transition: all 500ms;
+}
