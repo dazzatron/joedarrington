@@ -1,32 +1,19 @@
 angular.module('jmdApp.controllers', [])
 
-.controller('jmdSites', ['$scope', 'jmdSharedResource', 'jmdSharedFactory', function ($scope, jmdSharedResource, jmdSharedFactory) {
+.controller('jmdSites', ['$scope', 'jmdSharedResource', 'jmdSharedFactory', '$timeout', function ($scope, jmdSharedResource, jmdSharedFactory, $timeout) {
 
     jmdSharedFactory.getSites().success(function (data) {
 
         $scope.sites = data;
 
-        setTimeout(function () {
-            $(window).trigger("reload"); // hello mr hack!
-        }, 500);
+        $timeout(function () {
+            $(window).trigger("reload");
+        }, 0);
 
     }).error(function () {
-        alert("error, sorry.");
+        alert("Error, sorry. Try again later perhaps!");
     });
 
-    $scope.months = [
-        "dec",
-        "nov",
-        "oct",
-        "sep",
-        "aug",
-        "jul",
-        "jun",
-        "may",
-        "apr",
-        "mar",
-        "feb",
-        "jan"
-    ];
+    $scope.months = jmdSharedFactory.getMonths();
 
 }]);

@@ -2,15 +2,33 @@
 
 .factory('jmdSharedFactory', ['$http', function ($http) {
 
-    function getSites () {
+    var getSites = function() {
         return $http({
             method: 'GET',
             url: 'app/json/sites.json'
         });
     }
 
+    var getMonths = function () {
+        return [
+        "dec",
+        "nov",
+        "oct",
+        "sep",
+        "aug",
+        "jul",
+        "jun",
+        "may",
+        "apr",
+        "mar",
+        "feb",
+        "jan"
+        ];
+    }
+
     return ({
-        getSites: getSites
+        getSites: getSites,
+        getMonths: getMonths
     });
 
 }]);

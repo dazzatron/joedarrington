@@ -19,16 +19,22 @@
 
     var url = $location.absUrl();
     var urlLastIndex = url.lastIndexOf("/");
+    var found = false;
     url = url.substr(urlLastIndex, url.length - urlLastIndex);
 
     for (var i = 0, length = $scope.menuoptions.length; i < length; i++) {
 
         if ($scope.menuoptions[i].url == url) {
             $scope.menuoptions[i].active = true;
+            found = true;
         } else {
             $scope.menuoptions[i].active = false;
         };
 
     };
+
+    if (!found) {
+        $scope.menuoptions[0].active = true;
+    }
 
 }]);
