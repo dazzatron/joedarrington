@@ -65,6 +65,8 @@
         // if valid
         if ($scope.model.primeCount) {
 
+            $scope.model.primeCount = Math.floor($scope.model.primeCount);
+
             $scope.model.primes = [];
             $scope.model.loading = true;
 
