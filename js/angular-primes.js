@@ -4,6 +4,7 @@
 
 .controller('AngularPrimesCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 
+    // function to work out primes
     var isPrime = function (n) {
 
         var b = Math.sqrt(n);
@@ -23,15 +24,19 @@
 
     }
     
+    // init
     $scope.model = {};
     $scope.model.primeCount = 10; // default
-    $scope.model.maxPrimes = 30; // max amount we allow - work out what this should be screen wise?
-    $scope.model.maxCalc = 1000000; // max we will calculate - we could work this out with a quick perf analysis
+    $scope.model.maxPrimes = 30; // max amount we allow in table - work out what this should be screen wise?
+    $scope.model.maxCalc = 1000000; // max we will calculate full stop - we could work this out with a perf analysis
 
+    // watch for changes to prime count
     $scope.$watch('model.primeCount', function (newValue, oldValue) {
 
+        // if valid
         if (newValue) {
 
+            // set vars
             $scope.model.loading = true;
             var primes = $scope.model.primes = [];
             var i = 0
@@ -40,6 +45,8 @@
             // allow UI refresh
             $timeout(function () {
 
+                // would be nice if we could cache already looked up numbers
+                // loop and calc primes
                 while (i < $scope.model.primeCount) {
 
                     n++;
@@ -51,6 +58,7 @@
 
                 }
 
+                // reset screen
                 $scope.model.loading = false;
                 $scope.model.primes = primes;
 
