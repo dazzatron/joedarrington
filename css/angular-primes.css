@@ -18,10 +18,21 @@ a {
     background:#00B2EE;
     color:#fff;
     text-decoration:none;
+    box-shadow: 2px 2px 0 rgba(0,0,0,.2);
+    text-shadow: -1px -1px 0 rgba(0,0,0,.2);
+    position:relative;
+    -webkit-transition: left 400ms, top 400ms;
+    transition: left 400ms, top 400ms;
 }
 
 a:hover {
     background:#333;
+}
+
+a:active {
+    top:2px;
+    left:2px;
+    box-shadow: none;
 }
 
 .options {
