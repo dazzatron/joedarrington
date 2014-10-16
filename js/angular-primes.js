@@ -65,6 +65,7 @@
         // if valid
         if ($scope.model.primeCount) {
 
+            // fix floating
             $scope.model.primeCount = Math.floor($scope.model.primeCount);
 
             $scope.model.primes = [];

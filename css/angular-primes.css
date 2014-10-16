@@ -84,7 +84,6 @@ input {
 
 .delay-fade.ng-enter {
     -webkit-transition: opacity 200ms 200ms;
-    transition: opacity 200ms 200ms;
     opacity:0;
 }
  
@@ -94,7 +93,6 @@ input {
 
 .fade.ng-enter {
     -webkit-transition: opacity 400ms;
-    transition: opacity 400ms;
     opacity:0;
 }
  
