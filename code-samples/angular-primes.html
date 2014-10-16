@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Angular prime number grid</title>
+    <link href='http://fonts.googleapis.com/css?family=Nova+Mono' rel='stylesheet' type='text/css'>
+    <link href="/css/angular-primes.css" rel="stylesheet" />
+
+</head>
+
+<body ng-app="AngularPrimes" ng-controller="AngularPrimesCtrl">
+
+    <div class="options">
+
+        <a href="/">3ack to j0edarrin8ton.com</a>
+
+        <a class="float-right" href="#">View 5ource for p4ge on github</a>
+
+    </div>
+
+    <h1>Angular <span>prime</span> number generator</h1>
+
+    <div class="intro">
+
+        <b>Amount of primes to display:</b>
+
+        <input autocomplete="off" name="primeCount" ng-disabled="model.loading"
+            ng-model="model.primeCount" type="number" min="1" max="{{model.maxCalc}}" />
+
+        <span class="error" ng-show="!model.primeCount">
+            Pleae enter a positive whole number, less than {{ model.maxCalc | number }}
+        </span>
+    
+    </div>
+
+    <div class="delay-fade" ng-if="model.primeCount <= model.maxPrimes && model.loading">
+        <b>
+        Loading table...
+        </b>
+    </div>
+
+    <table class="fade" ng-if="model.primeCount <= model.maxPrimes && !model.loading">
+
+        <tbody>
+
+            <tr>
+
+                <th></th>
+
+                <th ng-repeat="b in model.primes">{{ b | number }}
+
+                </th>
+
+            </tr>
+
+            <tr ng-repeat="a in model.primes">
+
+                <th>{{ a | number }}
+
+                </th>
+
+                <td ng-repeat="b in model.primes">{{ a * b | number }}
+
+                </td>
+
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <div class="fade" ng-if="model.primeCount > model.maxPrimes">
+
+        <p>
+            The number is too large to display a table.
+        </p>
+
+        <p>
+            Prime {{ model.primeCount | number }} is  <b>
+
+                <span class="delay-fade" ng-if="model.loading">loading...</span>
+
+                {{ model.primes[model.primes.length-1] | number }}</b> 
+
+        </p>
+
+    </div>
+
+    <script src="/js/vendor/angular.min.js"></script>
+    <script src="/js/vendor/angular-animate.min.js"></script>
+    <script src="/js/angular-primes.js"></script>
+
+</body>
+</html>

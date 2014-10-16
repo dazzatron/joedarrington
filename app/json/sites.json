@@ -2,6 +2,26 @@
     {
         "value": "2014",
         "site": [
+		            {
+                "id": 0,
+                "url": "",
+                "title": "Noodle Live",
+                "subtitle": "App that allows users to connect to speakers and attendees before, after and during events. ",
+                "text": "",
+                "img": "noodle.png",
+                "month": "sep",
+                "bgcolour": "#ff3333",
+                "fgcolour": "#fff",
+                "techs": [
+                    "HTML5",
+                    "CSS3",
+                    "Sass",
+                    "jquery",
+					"mobile angular ui",
+					"Angular JS",
+                    "JavaScript"
+                ]
+            },
             {
                 "id": 1,
                 "url": "http://adrn.ac.uk",
@@ -15,7 +35,8 @@
                 "techs": [
                     "HTML5",
                     "CSS3",
-                    "Sass",
+					"Bootstrap 3",
+                    "Sass/Compass",
                     "jquery",
                     "JavaScript"
                 ]
@@ -33,6 +54,7 @@
                 "techs": [
                     "HTML5",
                     "CSS3",
+					"Bootstrap Angular",
                     "Sass",
                     "AngularJS",
                     "JavaScript"
@@ -40,9 +62,9 @@
             },
             {
                 "id": 3,
-                "url": "http://s17668332.onlinehome-server.info",
+                "url": "http://www.hottubassist.co.uk",
                 "title": "Hot Tub Assist",
-                "subtitle": "UK\"s largest hot tub service co.",
+                "subtitle": "Hot tub service co.",
                 "text": "",
                 "img": "hot-tub-assist.jpg",
                 "month": "jan",
@@ -52,6 +74,7 @@
                     "HTML5",
                     "CSS3",
                     "Grunt",
+					"c# MVC",
                     "Sass",
                     "Umbraco 6"
                 ]
@@ -64,6 +87,7 @@
             {
                 "id": 4,
                 "url": "/booking-engine/index.html",
+				"urlText": "Angular JS port",
                 "text": "IBE (Internet booking engine) created in knockoutJS.",
                 "title": "Abercrombie & Kent",
                 "subtitle": "Luxury holiday co.",
@@ -124,7 +148,15 @@
                 "img": "ukds.jpg",
                 "month": "dec",
                 "bgcolour": "#039760",
-                "fgcolour": "#ddd"
+                "fgcolour": "#ddd",
+				"techs": [
+                    "HTML5",
+                    "CSS3",
+					"jQuery",
+					"JavaScript",
+                    "Bootstrap 2",
+					"Umbraco 4"
+                ]
             },
             {
                 "id": 8,
@@ -135,7 +167,13 @@
                 "img": "discover-ukds.jpg",
                 "month": "sep",
                 "bgcolour": "#0c2b81",
-                "fgcolour": "#ddd"
+                "fgcolour": "#ddd",
+				"techs": [
+                    "HTML5",
+                    "CSS3",
+					"jQuery",
+					"JavaScript"
+                ]
             },
             {
                 "id": 9,
@@ -148,9 +186,10 @@
                 "bgcolour": "#0067f9",
                 "fgcolour": "#fff",
                 "techs": [
-                    "html",
-                    "css",
-                    "google maps API"
+                    "html5",
+                    "css3",
+                    "google maps API",
+					"Direct debit integration"
                 ]
             },
             {
