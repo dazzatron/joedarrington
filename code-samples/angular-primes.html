@@ -24,16 +24,23 @@
 
         <b>Amount of primes to display:</b>
 
-        <input autocomplete="off" name="primeCount" ng-disabled="model.loading"
-            ng-model="model.primeCount" type="number" min="1" max="{{model.maxCalc}}" />
+        <input autocomplete="off" 
+            name="primeCount" 
+            ng-disabled="model.loading"
+            ng-model="model.primeCount" 
+            type="number" 
+            ng-change="primeChange()"
+            min="1" 
+            max="{{model.maxCalc}}" />
 
-        <span class="error" ng-show="!model.primeCount">Pleae enter a positive whole number, less than {{ model.maxCalc | number }}
+        <span class="error" ng-show="!model.primeCount">Pleae enter a positive whole number, less than {{ model.maxCalc+1 | number }}
         </span>
 
     </div>
 
     <div class="delay-fade" ng-if="model.primeCount <= model.maxPrimes && model.loading">
-        <b>Loading table...
+        <b>
+            Loading table...
         </b>
     </div>
 
@@ -75,6 +82,7 @@
         </p>
 
         <p>
+
             Prime {{ model.primeCount | number }} is  <b>
 
                 <span class="delay-fade" ng-if="model.loading">loading...</span>
