@@ -33,7 +33,7 @@
             min="1"
             max="{{model.maxCalc}}" />
 
-        <button ng-disabled="model.loading" ng-click="primeChange()">
+        <button ng-disabled="!model.primeCount || model.loading" ng-click="primeChange()">
             update table
         </button> 
 
@@ -52,7 +52,7 @@
             </b>
         </div>
 
-        <table class="fade" ng-if="!model.loading && model.primeCount">
+        <table class="fade" ng-if="!model.loading">
 
             <tbody>
 
@@ -84,7 +84,7 @@
 
     </div>
 
-    <div class="fade" ng-if="!model.showTable && model.primeCount">
+    <div class="fade" ng-if="!model.showTable">
 
         <p>
             The number is too large to display a table.
