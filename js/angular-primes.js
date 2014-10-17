@@ -43,10 +43,11 @@
                 i++;
             }
 
-        }
+        };
 
         // set
         $scope.model.primes = primes;
+        $scope.model.lastPrime = primes[primes.length - 1];
 
         // reset screen
         $scope.model.loading = false;
@@ -60,6 +61,7 @@
     $scope.model.maxCalc = 1000000; // max we will calculate full stop - we could work this out with a perf analysis
 
     // changes to prime count
+    // add throttling?
     ($scope.primeChange = function () {
 
         // if valid
@@ -68,7 +70,15 @@
             // fix floating
             $scope.model.primeCount = Math.floor($scope.model.primeCount);
 
+            // check against max
+            if ($scope.model.primeCount <= $scope.model.maxPrimes) {
+                $scope.model.showTable = true;
+            } else {
+                $scope.model.showTable = false;
+            }
+
             $scope.model.primes = [];
+            $scope.model.lastPrime = undefined;
             $scope.model.loading = true;
 
             // allow UI refresh

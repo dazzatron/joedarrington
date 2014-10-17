@@ -30,16 +30,22 @@
             ng-disabled="model.loading"
             ng-model="model.primeCount"
             type="number"
-            ng-change="primeChange()"
             min="1"
             max="{{model.maxCalc}}" />
 
-        <span class="error" ng-show="!model.primeCount">Pleae enter a positive number, less than {{ model.maxCalc+1 | number }}
+        <button ng-disabled="model.loading" ng-click="primeChange()">
+            update table
+        </button> 
+
+        <span class="error" ng-show="!model.primeCount">
+            Pleae enter a positive number, less than {{ model.maxCalc+1 | number }}
         </span>
 
     </div>
 
-    <div ng-if="model.primeCount <= model.maxPrimes">
+    <div class="fade" ng-if="model.showTable">
+
+        <span ng-if="!model.loading">(Showing {{ model.primes.length }} primes)</span>
 
         <div class="delay-fade" ng-if="model.loading">
             <b>Loading table...
@@ -70,7 +76,6 @@
 
                     </td>
 
-
                 </tr>
 
             </tbody>
@@ -79,18 +84,19 @@
 
     </div>
 
-    <div class="fade" ng-if="model.primeCount > model.maxPrimes">
+    <div class="fade" ng-if="!model.showTable && model.primeCount">
 
         <p>
             The number is too large to display a table.
         </p>
 
         <p>
-            Prime {{ model.primeCount | number }} is  <b>
+
+            Prime <span ng-if="!model.loading">{{ model.primes.length | number }}</span> is  <b>
 
                 <span class="delay-fade" ng-if="model.loading">loading...</span>
 
-                {{ model.primes[model.primes.length-1] | number }}</b>
+                {{ model.lastPrime | number }}</b>
 
         </p>
 

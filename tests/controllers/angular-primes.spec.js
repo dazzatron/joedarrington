@@ -72,6 +72,28 @@
             expect(myScope.model.loading).toBeFalsy();
         }));
 
+        it('should hide the table if prime count over max primes', inject(function () {
+
+            myScope.model.maxPrimes = 20;
+            myScope.model.primeCount = 21;
+            myScope.primeChange();
+            myScope.$apply();
+
+            expect(myScope.model.showTable).toBeFalsy();
+
+        }));
+
+        it('should show the table if prime count under max primes', inject(function () {
+
+            myScope.model.maxPrimes = 20;
+            myScope.model.primeCount = 19;
+            myScope.primeChange();
+            myScope.$apply();
+
+            expect(myScope.model.showTable).toBeTruthy();
+
+        }));
+        
     });
 
 }());

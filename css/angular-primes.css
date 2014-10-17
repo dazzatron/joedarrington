@@ -10,10 +10,17 @@
 }
 
 .float-right {
-    float:right;
+    float:right !important;
 }
 
-a {
+button {
+    cursor:pointer;
+    border:none;
+    outline:none !important;
+    font-family: 'Nova Mono', arial;
+}
+
+a, button {
     padding:5px 10px;
     background:#00B2EE;
     color:#fff;
@@ -25,18 +32,24 @@ a {
     transition: left 400ms, top 400ms;
 }
 
-a:hover {
+a:hover, button:hover {
     background:#333;
 }
 
-a:active {
+a:active, button:active {
     top:2px;
     left:2px;
     box-shadow: none;
 }
 
 .options {
-    margin:20px 0 30px;
+    margin:20px 0 0 0;
+    overflow:hidden;
+    min-height:50px;
+}
+
+.options a {
+    float:left;
 }
 
 table {
