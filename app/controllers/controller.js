@@ -6,6 +6,28 @@ angular.module('jmdApp.controllers', [])
 
         $scope.sites = data;
 
+        var techs = [];
+
+        // years
+        for (var a = 0, lengtha = data.length; a < lengtha; a++) {
+
+            // sites
+            for (var b = 0, lengthb = data[a].site.length; b < lengthb; b++) {
+
+                // techs
+                for (var c = 0, lengthc = data[a].site[b].techs.length; c < lengthc; c++) {
+
+                    if (techs.indexOf(data[a].site[b].techs[c]) === -1) {
+                        techs.push(data[a].site[b].techs[c]);               
+                    }
+
+                }
+
+            };
+        };
+
+        $scope.techs = techs;
+
         $timeout(function () {
             $(window).trigger("reload");
         }, 0);
@@ -15,5 +37,13 @@ angular.module('jmdApp.controllers', [])
     });
 
     $scope.months = jmdSharedFactory.getMonths();
+
+    $scope.$watch('html5', function () {
+
+        $timeout(function () {
+            $(window).trigger("reload");
+        }, 0);
+
+    });
 
 }]);

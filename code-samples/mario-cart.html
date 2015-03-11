@@ -7,31 +7,31 @@
         body {
             margin: 0;
             padding: 0;
-            perspective: 800px;
             position: relative;
+            perspective: 800px;
         }
 
         .stage {
-            perspective: 800px;
-            width:800px;
-            height:400px;
-            overflow:hidden;
-            position:relative;
-            background:#eee;
-            -webkit-transform: rotateX(60deg);
+            width: 800px;
+            height: 500px;
+            position: relative;
+            background:#333;    
+            overflow:hidden;     
+        }
+
+        .stage-inner {
+            -webkit-transform: rotateX(80deg); /*start points*/   
         }
 
         .track-wrapper {
-            -webkit-transform: translateY(-132px) translateX(-483px);
-            -webkit-transform-origin: 400px 352px;
+            -webkit-transform: translateY(-480px) translateX(-130px); /*start points*/            
+            -webkit-transform-origin: 400px 480px; /* where the car is */
         }
 
-        .track {
-        }
 
         .track img {
-            width:1000px;
-            height:1000px;
+            width: 1000px;
+            height: 1000px;
         }
 
         .car {
@@ -40,10 +40,10 @@
             background: #333;
             position: absolute;
             left: 50%;
-            bottom: 10%;
-            margin-left:-10px;
-            margin-top:-10px;
-            z-index:10;
+            bottom: 20px;
+            margin-left: -10px;
+            margin-top: -10px;
+            z-index: 1000;
         }
 
     </style>
@@ -54,18 +54,18 @@
 
     <div class="stage">
 
+        <div class="car">
+        </div>
+
         <div class="stage-inner">
 
-            <div class="car">
+            <div class="track-wrapper">
+
+                <div class="track">
+                    <img src="/img/SuperMarioKartMapMushroomCup5.jpg" />
+                </div>
+
             </div>
-
-        <div class="track-wrapper">
-
-            <div class="track">
-                <img src="/img/SuperMarioKartMapMushroomCup5.png" />
-            </div>
-
-        </div>
 
         </div>
 
@@ -78,40 +78,34 @@
 
         var rot = 0;
         var speed = 0;
-        var originX = 0;
-        var originY = -132;
+        var originX = -480;
+        var originY = -130;
 
         $(window).on("keydown", function (e) {
 
+            e.preventDefault();
+
             // left
             if (e.keyCode === 37) {
-                rot+=4;
+                rot += 4;
             }
 
             // right
             if (e.keyCode === 39) {
-                rot-=4;
+                rot -= 4;
             }
 
             // up
             if (e.keyCode === 38) {
-                e.preventDefault();
-                originY += 2;
+                originY += 2 * Math.cos((rot * (Math.PI / 180)));
+                originX += 2 * Math.sin((rot * (Math.PI / 180)));
             }
 
-            // down
-            if (e.keyCode === 40) {
-                e.preventDefault();
-                originY-=2;
-            }
-
-            $(".track-wrapper").css({ transform: 'rotateZ(' + rot + 'deg) translateX(-483px)' });
-            $(".stage-inner").css({ transform: 'translateY(' + originY + 'px)' });
+            $(".track-wrapper").css({ transform: 'rotateZ(' + rot + 'deg) translateY(' + originY + 'px) translateX(' + originX + 'px)' });
 
         });
 
     </script>
-
 
 </body>
 </html>

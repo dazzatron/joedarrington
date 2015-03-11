@@ -1,0 +1,95 @@
+﻿html, body {
+    height:100%;
+    margin:0;
+    padding:10px;
+}
+
+body {
+    text-align:center;
+    font-family: 'Oxygen Mono', cursive;
+    font-weight:bold;
+}
+
+a {
+    color:#d40823;
+}
+
+a:hover {
+    color:#600014;
+}
+
+.metro-text {
+    line-height:35px;
+    font-size:30px;
+    text-transform:uppercase;
+    color:#fff;
+    text-shadow:3px 3px 0 rgba(96,0,2,.5);
+    padding:80px 30px;
+    position:relative;
+}
+
+.metro-text div {
+    display:inline-block;
+    position:relative;
+    margin-bottom:15px;
+}
+
+.metro-text span {
+    padding:0 5px;
+    height:35px;
+    display:inline-block;
+    transform:skewY(-10deg);
+    transform-origin:100%;
+    position:relative;
+    z-index:1;
+    background:#d40823;
+    background:rgba(212,8,35,.85);
+    width:200px;
+    text-align:center;
+    white-space:nowrap;
+    box-shadow:0 2px 5px rgba(0,0,0,.2);
+}
+
+.metro-text div:before {
+    content:"";
+    position:absolute;
+    width:100%;
+    right:0;
+    height:35px;
+    top:0;
+    z-index:-1;
+    background:#600014;
+    transform:skewY(3.5deg);
+    transform-origin:100%;
+    box-shadow:0 2px 5px rgba(0,0,0,.5);
+}
+
+.metro-text div:first-child:before {
+    width:40%;
+}
+
+.metro-text div:last-child:after {
+    content:"";
+    position:absolute;
+    width:40%;
+    left:0;
+    height:35px;
+    top:37px;
+    z-index:-1;
+    background:#600014;
+    transform:skewY(5deg);
+    transform-origin:0;
+    box-shadow:0 2px 5px rgba(0,0,0,.5);
+}
+
+
+input {
+    height:30px;
+    line-height:30px;
+    font-size:20px;
+    width:90%;
+    margin:30px 0;
+    padding:0;
+    text-align:center;
+    border:2px solid #ddd;
+}

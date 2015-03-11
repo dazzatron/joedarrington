@@ -30,7 +30,7 @@
         return [
             {
                 "url": "/index.html",
-                "title": "Joe Darrington"
+                "title": "Home"
             },
             {
                 "url": "/experiments.html",

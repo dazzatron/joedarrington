@@ -18,16 +18,22 @@
 
     </head>
 
-
     <body ng-controller="jmdSites">
+
+        <a href="#" class="fancy-button">
+            test
+        </a>
 
         <!--[if lt IE 10]>
             <p class="browser-warning">
             You are using an <strong>outdated</strong> browser. 
-            Please <a href="http://browsehappy.com/">upgrade your browser</a> or 
-            <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> 
+            Please <a href="http://browsehappy.com/">upgrade your browser</a> 
             to improve your experience.</p>
         <![endif]-->           
+
+        <select class="tech-filter" ng-model="techselected" ng-options="tech for tech in techs | orderBy:'toString()'">
+
+        </select>
 
         <div ng-include="'/app/views/date-scroller.html'"></div>
 
@@ -65,7 +71,7 @@
 
             </section>
 
-            <section class="section clearfix" ng-repeat="year in sites">
+            <section class="section clearfix" ng-repeat="year in sites | filter: techselected">
 
                 <h1 class="section-header">
                 
@@ -80,7 +86,7 @@
                     data-bgcolour="{{site.bgcolour}}" 
                     data-fgcolour="{{site.fgcolour}}" 
                     data-month="{{ site.month }}" 
-                    ng-repeat="site in year.site">
+                    ng-repeat="site in year.site | filter: techselected">
 
                     <div class="article-underlay" ng-style="{ 'background-color' : site.bgcolour }"></div>
 

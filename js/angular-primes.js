@@ -61,7 +61,6 @@
     $scope.model.maxCalc = 1000000; // max we will calculate full stop - we could work this out with a perf analysis
 
     // changes to prime count
-    // add throttling?
     ($scope.primeChange = function () {
 
         // if valid

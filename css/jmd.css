@@ -439,9 +439,67 @@ a:hover {
     background:#eee;
     height:150px;
     width:150px;
+    box-shadow:-2px 0 2px #eee;
 }
 
 .experiment-image img {
     width:100%;
     height:100%;
+}
+
+.tech-filter {
+    position:fixed;
+    left:20px;
+    bottom:0;
+    padding:10px;
+    z-index:2;
+}
+
+
+
+
+
+
+.fancy-button {
+
+    line-height:40px;
+    background:#fff;
+    display:inline-block;
+    color:#000;
+    position:relative;
+    z-index:10;
+    top:100px;
+    left:20px;
+    padding:0 20px;
+    font-size:20px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.fancy-button:after {
+    content:'test';
+    position:absolute;
+    left:0;
+    top:0;
+    transition: all 1000ms;
+    z-index:11;
+    background:#000;
+    color:#fff;
+    display:block;
+    width:0;
+    overflow:hidden;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+        padding:0 20px;
+
+}
+
+.fancy-button:hover {
+    border:none;
+}
+
+.fancy-button:hover:after {
+    width:100%;
 }

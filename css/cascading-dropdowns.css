@@ -22,22 +22,22 @@ a {
     text-decoration: none;
 }
 
-    a:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        overflow: hidden;
-        height: 2px;
-        background: #fff;
-        transition: 200ms;
-    }
+a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    overflow: hidden;
+    height: 2px;
+    background: #fff;
+    transition: 200ms;
+}
 
-    a:hover:after {
-        left: 0;
-        width: 100%;
-    }
+a:hover:after {
+    left: 0;
+    width: 100%;
+}
 
 label {
     color: #333;

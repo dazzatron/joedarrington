@@ -1,0 +1,57 @@
+﻿        html, body {
+            height:100%;
+            margin:0;
+            padding:0;
+            overflow:hidden;
+        }
+
+        body {
+            background:#000;
+        }
+
+        h1 {
+            font-size:50px;
+        }
+
+        h2 {
+
+        }
+
+        @media only screen and (max-width: 960px) {
+
+            h1 {
+                font-size:25px;
+            } 
+
+        }
+
+.circle {
+    width:100px;
+    height:100px;
+    background:#fff;
+    border-radius:50%;
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.circle:before, .circle:after {
+    content:"";
+    background:#000;
+    position:absolute;
+    top:50%;
+    left:50%;
+}
+
+.circle:before {
+    height:1px;
+    width:20%;
+    margin-left:-10%;
+}
+
+.circle:after {
+    width:1px;
+    height:20%;
+    margin-top:-10%;
+}

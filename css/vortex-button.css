@@ -1,0 +1,66 @@
+﻿        html, body {
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+
+        body {
+            font-family: 'Sigmar One', cursive;
+            text-align:center;
+            perspective:800px;
+        }
+
+        h1 {
+            font-size:50px;
+        }
+
+        a {
+            color:#B53302;
+            font-size:16px;
+            text-decoration:none;
+            display:inline-block;
+            letter-spacing:-1px;
+        }
+
+        a:hover {
+            color:#333;
+        }
+
+        .button {
+            height:100px;
+            width:100px;
+            background:#000;
+            display:block;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin: -50px 0 0 -50px;
+            border-radius:50%;
+            z-index:1;
+        }
+
+        .button:hover {
+
+            transition: all 200ms;
+
+            transform:rotateX(40deg);
+
+            box-shadow: 
+                0 0 0 20px #fff, 
+                0 0 0 40px #000, 
+                0 0 0 60px #fff,
+                0 0 0 80px #000,
+                0 0 0 100px #fff,
+                0 0 0 120px #000,
+                0 0 0 140px #fff,
+                0 0 0 160px #000,
+                0 0 0 180px #fff,
+                0 0 0 200px #000,
+                0 0 0 220px #fff,
+                0 0 0 240px #000,
+                0 0 0 260px #fff,
+                0 0 0 280px #000,
+                0 0 0 300px #fff;
+
+        }
+

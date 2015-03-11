@@ -1,0 +1,90 @@
+﻿        html, body {
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+
+        body {
+            background:url('/img/burga.jpg') no-repeat 50% 50%;
+            font-family: 'Sigmar One', cursive;
+            color:#B53302;
+            text-align:center;
+        }
+
+        h1 {
+            font-size:50px;
+            text-shadow: 2px 2px 0 #9B781E, 4px 4px 0 #F3AE08, 5px 5px 5px rgba(0,0,0,.2);
+        }
+
+        h2 {
+
+        }
+
+        @media only screen and (max-width: 960px) {
+
+            h1 {
+                font-size:25px;
+            } 
+
+        }
+
+        a {
+            color:#B53302;
+            font-size:16px;
+            text-decoration:none;
+            padding:5px 0;
+            display:inline-block;
+            letter-spacing:-1px;
+        }
+
+        a:hover {
+            color:#333;
+        }
+
+        .burger {
+            height:100px;
+            width:100px;
+            background:#000;
+            display:block;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin: -50px 0 0 -50px;
+            border-radius:5%;
+            z-index:1;
+            transition: background 250ms;
+        }
+
+        .burger:hover {
+            background:#333;
+        }
+
+        .burger span {        
+            position:absolute;
+            left:50%;
+            top:50%;
+            margin:-4% 0 0 -30%;
+            width:60%;
+            height:8%;
+            background:#fff;
+            transition: all 500ms, top 1000ms 500ms;
+            border-radius:2px;
+       }
+
+        .burger :first-child {
+            top: 25%;
+        }
+
+        .burger :last-child {
+            top: 75%;
+        }
+
+        .burger.active span {
+            transform:rotateZ(45deg);
+            top:50%;
+            transition: all 300ms 300ms, top 300ms;
+       }
+
+        .burger.active :last-child {
+            transform:rotateZ(-45deg);
+        }
