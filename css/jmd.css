@@ -306,22 +306,16 @@ a:hover {
     float:left;
     width:50%;
     opacity:0;
-    -webkit-perspective:800px;
-    -webkit-transform:scale(.9);
-    -webkit-transition: 1500ms 1000ms;
-    -moz-perspective:800px;
-    -moz-transform:scale(.9);
-    -moz-transition: 1500ms 1000ms;
     perspective:800px;
     transform:scale(.9);
     transition: 1500ms 1000ms;
+    -webkit-filter:blur(2px);
 }
 
 .article.active .article-image {
-    -webkit-transform:scale(1);
-    -moz-transform:scale(1);
-    -webkit-transform:scale(1);
+    transform:scale(1);
     opacity:1;
+    -webkit-filter:blur(0);
 }
 
 .article-image img {
