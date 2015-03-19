@@ -10,9 +10,10 @@
 <body>
 
     <a class="return" href="/">&larr; return.</a>
+   
 
     <div class="background">
-    </div>   
+    </div>  
 
     <div class="copyright">
         waveform generation: <a href="http://waveformjs.org" target="_blank">waveformjs.org</a> and music <a target="_blank" href="http://squarepusher.net">squarepusher.net</a>
@@ -21,7 +22,11 @@
     <div class="loader">
         Loading... this has sound!
     </div>
-     
+    
+    <div class="trackSelector">
+        <select id="track-selector"></select>
+    </div>
+
     <script src="/js/jsonp.js"></script>
     <script src="http://connect.soundcloud.com/sdk.js"></script>
     <script src="/js/waveform.js"></script>

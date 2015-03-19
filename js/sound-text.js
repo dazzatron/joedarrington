@@ -1,5 +1,14 @@
 ﻿$(window).load(function () {
 
+    
+    var tracks = [
+                    { Path: '/tracks/18545986', Title: 'Track 1' },
+                    { Path: '/tracks/18545910', Title: 'Track 2' },
+                    { Path: '/tracks/18545931', Title: 'Track 3' }
+                    /*,{ Path: '/tracks/254', Title: 'Track 4' },
+                    { Path: '/tracks/255', Title: 'Track 5' }*/
+    ]; //tracks[0] is the default
+
 	var text = [
 		"And did you get what you wanted from this life, even so?",
 		"I did.",
@@ -41,6 +50,21 @@
 
 	}
 
+    //  drop dan stuff 
+    var options = '';
+    tracks.forEach(function(e) {
+        options += '<option value="' + e.Path + '">' + e.Title + '</option>';
+    });
+    $('#track-selector').html(options);
+
+    $('#track-selector').change(function () {
+        SC.streamStopAll();
+        var trackPath = $(this).val();
+        console.log(trackPath);
+        playTrack(trackPath);
+    });
+
+
 	var $text = $('.text');
 	var $circle = $('.circle');
 
@@ -59,106 +83,108 @@
     // create copy
 	textCopy = $.extend(true, {}, textObject[0]);
 
-	var streamOptions = {
-
-		whileplaying: function () {
+    var streamOptions = {
+        whileplaying: function() {
 
             // get current volume
-			var chunk = this.durationEstimate / waveFormData.length; // each chunk size
-			var currentWave = waveFormData[(Math.floor(this.position / (chunk)))];
+            var chunk = this.durationEstimate / waveFormData.length; // each chunk size
+            var currentWave = waveFormData[(Math.floor(this.position / (chunk)))];
 
-			document.title = currentWave;
+            document.title = currentWave;
 
             // circle always animates
-			$circle.css({
-				transform: 'scale(' + currentWave + ')',
-				opacity: currentWave,
-				'-webkit-filter': 'blur(' + (2 * currentWave) + 'px)',
-			});
+            $circle.css({
+                transform: 'scale(' + currentWave + ')',
+                opacity: currentWave,
+                '-webkit-filter': 'blur(' + (2 * currentWave) + 'px)',
+            });
 
-			if (currentWave > .95) {
-			    if (!circleFlag) {
-			        $circle.addClass('peak');
-			        circleFlag = true;
-			    }
-			} else {
-			    if (circleFlag) {
-			        $circle.removeClass('peak');
-			        circleFlag = false;
-			    }
-			}
+            if (currentWave > .95) {
+                if (!circleFlag) {
+                    $circle.addClass('peak');
+                    circleFlag = true;
+                }
+            } else {
+                if (circleFlag) {
+                    $circle.removeClass('peak');
+                    circleFlag = false;
+                }
+            }
 
-			// we get to the end, move on
-			if (Object.keys(textCopy).length === 0) {
+            // we get to the end, move on
+            if (Object.keys(textCopy).length === 0) {
 
                 // inc
-				d++;
+                d++;
 
-				// allow user to read txt
-				if (d > $text.eq(c).find('.letter').length) {
+                // allow user to read txt
+                if (d > $text.eq(c).find('.letter').length) {
 
                     // reset
-				    d = 0;
+                    d = 0;
 
                     // classes
-					$text.eq(c).removeClass('shown');
-					$text.eq(c).find('.letter').removeClass('active');
+                    $text.eq(c).removeClass('shown');
+                    $text.eq(c).find('.letter').removeClass('active');
 
                     // inc
-					c++;
+                    c++;
 
                     // start again
-					if (c >= text.length) {
-						c = 0;
-					};
+                    if (c >= text.length) {
+                        c = 0;
+                    };
 
                     // create copy
-					textCopy = $.extend(true, {}, textObject[c]);
+                    textCopy = $.extend(true, {}, textObject[c]);
 
                     // add class
-					$text.eq(c).addClass('shown');
+                    $text.eq(c).addClass('shown');
 
-				}
+                }
 
-			};
+            };
 
-			// at peaks show letter
-			if (currentWave > .8) {				
-				var textRemove = (Math.floor(Math.random() * Object.keys(textCopy).length)); // get random letter
-				var letterRemove = Object.keys(textCopy)[textRemove]; // gives us letter
-				var letterRemoveArray = textCopy[letterRemove]; // array of positions
-				delete textCopy[letterRemove]; // remove from object
-			}
+            // at peaks show letter
+            if (currentWave > .8) {
+                var textRemove = (Math.floor(Math.random() * Object.keys(textCopy).length)); // get random letter
+                var letterRemove = Object.keys(textCopy)[textRemove]; // gives us letter
+                var letterRemoveArray = textCopy[letterRemove]; // array of positions
+                delete textCopy[letterRemove]; // remove from object
+            }
 
-			// show each letter
-			for (var i = 0, length = letterRemoveArray.length; i < length; i++) {
-				$text.eq(c).find('.letter').eq(letterRemoveArray[i]).addClass('active');
-			}
+            // show each letter
+            for (var i = 0, length = letterRemoveArray.length; i < length; i++) {
+                $text.eq(c).find('.letter').eq(letterRemoveArray[i]).addClass('active');
+            }
+        }
 
-		}
+    };
 
-	}
 
-	// start soundcloud
-	SC.get("/tracks/18545986", function (track) {
+    function playTrack(trackPath) {
+        // start soundcloud
+        SC.get(trackPath, function (track) {
 
-		JSONP.get("http://www.waveformjs.org/w", {
-			url: track.waveform_url
-		}, function (data) {
-		    waveFormData = data;
-		    setTimeout(function () {
-		        $('.loader').hide();
-		    }, 2000);
-		});
+            JSONP.get("http://www.waveformjs.org/w", {
+                url: track.waveform_url
+            }, function (data) {
+                waveFormData = data;
+                setTimeout(function () {
+                    $('.loader').hide();
+                }, 2000);
+            });
 
-		SC.stream(track.uri, streamOptions, function (stream) {
+            SC.stream(track.uri, streamOptions, function (stream) {
+                setTimeout(function () {
+                    stream.play();
+                }, 2000);
 
-		    setTimeout(function () {
-		        stream.play();
-		    }, 2000);
+            });
 
-		});
+        });
+    }
 
-	});
+    playTrack(tracks[0].Path);
 
 });

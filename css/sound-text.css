@@ -107,6 +107,14 @@ img {
     color:#fff;
 }
 
+.trackSelector {
+    position:absolute;
+    top:80%;
+    left:50%;
+    z-index:3;
+    text-align:center;
+}
+
 a {
     color:#fff;
 }
