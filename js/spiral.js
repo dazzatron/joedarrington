@@ -7,7 +7,6 @@ angular.module('jmd.controllers', []).
     controller('jmdSpiralCtrl', ['$scope', 'localStorageService',
         function ($scope, localStorageService) {
 
-    // fixed
     var mouseX = $(window).width() / 2;
     var mouseY = $(window).height() / 2;
     var $html = $('html');
@@ -33,6 +32,7 @@ angular.module('jmd.controllers', []).
         ];
     }
 
+    // from: http://static.guim.co.uk/sys-images/Arts/Arts_/Pictures/2012/1/13/1326458117290/Addictive---detail-of-Dam-007.jpg
     var colours = ['#fad8b2', '#67494b',
         '#9d3b2e', '#005c9a', '#f2ab7d',
         '#ffb151', '#8b852f', '#9dab16',
