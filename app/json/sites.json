@@ -64,13 +64,32 @@
                 ]
             },
             {
+                "id": 2,
+                "url": "http://icem.data-archive.ac.uk/",
+                "title": "Integrated Census microdata",
+                "subtitle": "Census microdata for 1851 to 1911, developed by the I-CeM project.",
+                "text": "Browse and download enhanced historical census microdata for 1851 to 1911.",
+                "img": "icem.jpg",
+                "month": "mar",
+                "bgcolour": "#8f0c34",
+                "fgcolour": "#fff",
+                "techs": [
+                    "HTML5",
+                    "CSS3",
+                    "Bootstrap Angular",
+                    "Sass",
+                    "AngularJS",
+                    "JavaScript"
+                ]
+            },
+            {
                 "id": 1,
                 "url": "http://adrn.ac.uk",
                 "title": "ADRN",
                 "subtitle": "The Administrative Data Research Network is a UK-wide partnership...",
                 "text": "between universities, government departments and agencies, national statistics authorities, funders and the wider research community.",
                 "img": "adrn.jpg",
-                "month": "jun",
+                "month": "feb",
                 "bgcolour": "#ff0198",
                 "fgcolour": "#fff",
                 "techs": [
@@ -79,25 +98,6 @@
 					"Bootstrap 3",
                     "Sass/Compass",
                     "jQuery",
-                    "JavaScript"
-                ]
-            },
-            {
-                "id": 2,
-                "url": "http://icem.data-archive.ac.uk/",
-                "title": "Integrated Census microdata",
-                "subtitle": "Census microdata for 1851 to 1911, developed by the I-CeM project.",
-                "text": "Browse and download enhanced historical census microdata for 1851 to 1911.",
-                "img": "icem.jpg",
-                "month": "feb",
-                "bgcolour": "#8f0c34",
-                "fgcolour": "#fff",
-                "techs": [
-                    "HTML5",
-                    "CSS3",
-					"Bootstrap Angular",
-                    "Sass",
-                    "AngularJS",
                     "JavaScript"
                 ]
             },

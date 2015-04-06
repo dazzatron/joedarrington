@@ -15,7 +15,7 @@
     var LS = localStorageService.get('boom');
 
     // cleanup 
-    localStorageService.clearAll();
+    //localStorageService.clearAll();
 
     if (LS) {
         $scope.model = LS;

@@ -33,6 +33,7 @@
         this.parent = this.$element.parent();
         this.onScreen = false;
         this.activated = false;
+        this.sectionDateWrapper = $(".section-date-wrapper");
     };
 
     Site.prototype.setMeasurements = function () {
@@ -60,10 +61,11 @@
                     $(".section-date-active").removeClass("section-date-active").attr("style", "");
                     monthActive.addClass("section-date-active").css({ color: this.bgcolour });
                     monthOffset = monthActive.position().top;
-                    $(".section-date-wrapper").css({ transform: "translate3d(0," + -monthOffset + "px, 0)" });
+                    this.sectionDateWrapper.css({ transform: "translate3d(0," + -monthOffset + "px, 0)" });
+                    this.sectionDateWrapper.addClass('transitioning');
 
                 } else {
-                    $(".section-date-wrapper").css({ transform: "translate3d(0,100%,0)" });
+                    this.sectionDateWrapper.css({ transform: "translate3d(0,100%,0)" });
                 }
 
             }

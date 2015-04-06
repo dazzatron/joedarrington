@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="/css/spiral.css" rel="stylesheet" />
+    <title>spiral</title>
+
+</head>
+
+<body class="ng-cloak" ng-app="jmdSpiralApp" ng-controller="jmdSpiralCtrl">
+
+    <div class="fps" ng-show="fps" ng-class="{'struggling': fps < perfSlowFrame}">
+        {{ fps }} fps
+    </div>
+
+    <div class="tool-box">
+
+        <h1>parameters:</h1>
+
+        <form name="spiralForm">
+
+            <label ng-repeat="param in params">
+                
+                {{ param.label }}
+                
+                <input required step="1"
+                       name="param.label"
+                       type="{{param.type}}"
+                       max="{{param.max}}"
+                       min="{{param.min}}"
+                       ng-model="param.value" />
+
+            </label>
+
+            <button ng-click="randomize()">randomize?</button>
+
+        </form>
+
+        <a href="#" class="tool-box-hide"></a>
+
+        <div ng-show="!spiralForm.$valid" 
+             class="tool-box-error">
+        Please ensure all values are positive integers. Some values have min/max values, 
+        sorry I didn't bother coding proper validation!</div>
+
+    </div>
+
+    <a class="return" href="/experiments.html">&larr; return</a>
+
+    <div class="page-wrapper">
+
+        <div class="spiral-wrapper"
+             style="transform:rotate({{spiral.rotation}}deg);"
+             ng-repeat="spiral in spirals">
+
+            <div class="spiral"
+                 style="transform:translate3d({{spiral.translation}}px,0,0) scale({{spiral.scale}}); background: {{spiral.background}}">
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/js/vendor/angular.min.js"></script>
+    <script src="/js/vendor/angular-local-storage.min.js"></script>
+    <script src="/js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="/js/spiral.js"></script>
+
+</body>
+</html> 

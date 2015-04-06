@@ -213,6 +213,16 @@ a:hover {
     transform: translateY(100%);
 }
 
+.section-date-wrapper.transitioning {
+}
+
+.section-date-wrapper.transitioning .section-date {
+
+    transform:scale(1, 1.5);
+    -webkit-filter:blur(2px);
+    
+}
+
 .section-date-wrapper > :first-child {
     border:0;
 }

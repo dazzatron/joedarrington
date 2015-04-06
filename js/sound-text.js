@@ -1,13 +1,10 @@
 ﻿$(window).load(function () {
-
     
     var tracks = [
-                    { Path: '/tracks/18545986', Title: 'Track 1' },
-                    { Path: '/tracks/18545910', Title: 'Track 2' },
-                    { Path: '/tracks/18545931', Title: 'Track 3' }
-                    /*,{ Path: '/tracks/254', Title: 'Track 4' },
-                    { Path: '/tracks/255', Title: 'Track 5' }*/
-    ]; //tracks[0] is the default
+        { Path: '/tracks/18545986', Title: 'Squarepusher - White Car' },
+        { Path: '/tracks/136509428', Title: 'Amerie - One Thing (Housemate Remix)' },
+        { Path: '/tracks/528', Title: 'Track 3' }
+    ]; 
 
 	var text = [
 		"And did you get what you wanted from this life, even so?",
@@ -51,19 +48,17 @@
 	}
 
     //  drop dan stuff 
+
     var options = '';
     tracks.forEach(function(e) {
         options += '<option value="' + e.Path + '">' + e.Title + '</option>';
     });
+
     $('#track-selector').html(options);
 
     $('#track-selector').change(function () {
-        SC.streamStopAll();
-        var trackPath = $(this).val();
-        console.log(trackPath);
-        playTrack(trackPath);
+        playTrack($(this).val());
     });
-
 
 	var $text = $('.text');
 	var $circle = $('.circle');
@@ -76,6 +71,8 @@
 	var waveFormData;
 	var textCopy;
 	var circleFlag = false;
+	var thirdFlag = false;
+	var twoThirdFlag = false;
 
 	// show first
 	$text.eq(0).addClass('shown');
@@ -90,6 +87,12 @@
             var chunk = this.durationEstimate / waveFormData.length; // each chunk size
             var currentWave = waveFormData[(Math.floor(this.position / (chunk)))];
 
+            if (!currentWave) {
+                $circle.remove();
+                $text.remove();
+                return;
+            }
+
             document.title = currentWave;
 
             // circle always animates
@@ -99,7 +102,7 @@
                 '-webkit-filter': 'blur(' + (2 * currentWave) + 'px)',
             });
 
-            if (currentWave > .95) {
+            if (currentWave > .9) {
                 if (!circleFlag) {
                     $circle.addClass('peak');
                     circleFlag = true;
@@ -110,6 +113,22 @@
                     circleFlag = false;
                 }
             }
+
+            // past a third 
+            if (this.position > (this.durationEstimate / 3)) {
+                if (!thirdFlag) {
+                    thirdFlag = true;
+                    $circle.addClass('monkey');
+                }
+            }
+
+            // past 2 thirds
+            if (this.position > ((this.durationEstimate / 3) * 2)) {
+                if (!twoThirdFlag) {
+                    twoThirdFlag = true;
+                    $circle.addClass('sausage');
+                }
+            } 
 
             // we get to the end, move on
             if (Object.keys(textCopy).length === 0) {
@@ -163,6 +182,10 @@
 
 
     function playTrack(trackPath) {
+
+        SC.streamStopAll();
+        $('.loader').show();
+
         // start soundcloud
         SC.get(trackPath, function (track) {
 
@@ -185,6 +208,6 @@
         });
     }
 
-    playTrack(tracks[0].Path);
+    playTrack(tracks[1].Path);
 
 });
