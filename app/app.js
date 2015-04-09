@@ -2,5 +2,6 @@
     'jmdApp.services',
     'jmdApp.factories',
     'jmdApp.directives',
-    'jmdApp.controllers'
+    'jmdApp.controllers',
+    'ngAnimate'
 ]);

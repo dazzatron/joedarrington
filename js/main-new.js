@@ -62,7 +62,7 @@
                     monthActive.addClass("section-date-active").css({ color: this.bgcolour });
                     monthOffset = monthActive.position().top;
                     this.sectionDateWrapper.css({ transform: "translate3d(0," + -monthOffset + "px, 0)" });
-                    this.sectionDateWrapper.addClass('transitioning');
+                    //this.sectionDateWrapper.addClass('transitioning');
 
                 } else {
                     this.sectionDateWrapper.css({ transform: "translate3d(0,100%,0)" });

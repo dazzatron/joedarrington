@@ -16,13 +16,13 @@ angular.module('jmd.controllers', []).
     // check LS
     var LS = localStorageService.get('spiral');
 
-    // if in LS, use
+    // if in LS
     if (LS) {
-
         $scope.params = LS;
+    }
 
-    } else {
-        // otherwise set
+    // if we have no LS or the LS makes the form invalid
+    if (!LS || !spiralForm.$valid) {
         $scope.params = [
             { label: 'count', value: 100, max: 400, min: 10, type: 'number' },
             { label: 'rotation', value: 500, max: 1000, min: 1, type: 'number' },
@@ -36,7 +36,7 @@ angular.module('jmd.controllers', []).
     var colours = ['#fad8b2', '#67494b',
         '#9d3b2e', '#005c9a', '#f2ab7d',
         '#ffb151', '#8b852f', '#9dab16',
-        '#bca300', '#c2cab2', '#f38f77'];
+        '#bca300', '#c2cab2', '#f38f77'];            
 
     $scope.$watch('params',
 
@@ -178,12 +178,6 @@ angular.module('jmd.controllers', []).
     $tb.mouseleave(function () {
         overToolBox = false;
     });
-
-    //setTimeout(function () {
-    //    if (!overToolBox) {
-    //        $tb.addClass('hidden');
-    //    }
-    //}, 2000);
 
     $tbh.click(function (e) {
         e.preventDefault();

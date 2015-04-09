@@ -24,4 +24,6 @@
         $scope.menuoptions[0].active = true;
     }
 
+    $scope.menuHidden = true;
+
 }]);

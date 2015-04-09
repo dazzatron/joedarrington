@@ -1,8 +1,13 @@
-﻿<nav ng-controller="jmdMenu" class="main-menu">
+﻿<nav ng-controller="jmdMenu" class="main-menu" ng-mouseleave="menuHidden=true">
 
-    <a ng-repeat="menuoption in menuoptions" 
-        ng-class="{ active: menuoption.active }"
-        href="{{ menuoption.url }}">
+    <a class="burger-menu" ng-class="{ boom: !menuHidden }" ng-click="menuHidden=!menuHidden">
+        <span ng-if="menuHidden">&#9776;</span>
+        <span ng-if="!menuHidden">&#10005;</span>
+    </a>
+
+    <a ng-show="!menuHidden" ng-repeat=" menuoption in menuoptions"
+       ng-class="{ active: menuoption.active }"
+       href="{{ menuoption.url }}">
         {{ menuoption.title }}
     </a>
 

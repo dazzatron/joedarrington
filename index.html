@@ -20,9 +20,9 @@
 
     <body ng-controller="jmdSites">
 
-        <a href="#" class="fancy-button">
+        <!--<a href="#" class="fancy-button">
             test
-        </a>
+        </a>-->
 
         <!--[if lt IE 10]>
             <p class="browser-warning">
@@ -31,9 +31,9 @@
             to improve your experience.</p>
         <![endif]-->           
 
-        <select class="tech-filter" ng-model="techselected" ng-options="tech for tech in techs | orderBy:'toString()'">
+        <!--<select class="tech-filter" ng-model="techselected" ng-options="tech for tech in techs | orderBy:'toString()'">
 
-        </select>
+        </select>-->
 
         <div ng-include="'/app/views/date-scroller.html'"></div>
 
@@ -47,10 +47,30 @@
 
                     <div class="article-inner">
 
-                        <div class="article-info">
-                    
+                        <a href="/contact.html" class="main-avatar">
+
+                            <span class="main-avatar-speech">
+                                <span class="main-avatar-quotes">
+                                    <span>
+                                        this is me!
+                                    </span>
+                                    <span>
+                                        c'est moi!
+                                    </span>
+                                    <span>
+                                        este soy yo!
+                                    </span>
+                                </span>
+                            </span>
+
+                            <img src="/img/joe.jpg" />
+
+                        </a>
+
+                        <div class="article-info">                    
+
                             <h1 class="article-header">A selection of sites by Joe Darrington <b>(beta!)</b></h1><br />
-                            
+
                             This site is best viewed in Google Chrome. <br /><br />
 
                             <a href="https://github.com/jmditsolutions/joedarrington" target="_blank">
@@ -143,6 +163,7 @@
         </div>
 
         <script src="/js/vendor/angular.min.js"></script>
+        <script src="/js/vendor/angular-animate.min.js"></script>
         <script src="/app/app.js"></script>
         <script src="/app/services/sharedFactory.js"></script>
         <script src="/app/services/sharedData.js"></script>
