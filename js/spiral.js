@@ -22,6 +22,7 @@ angular.module('jmd.controllers', []).
     }
 
     // if we have no LS or the LS makes the form invalid
+    // if this changes, version it
     if (!LS || !spiralForm.$valid) {
         $scope.params = [
             { label: 'count', value: 100, max: 400, min: 10, type: 'number' },
@@ -50,7 +51,7 @@ angular.module('jmd.controllers', []).
 
                 while (a++ < $scope.params[0].value) {
                     $scope.spirals.push({
-                        rotation: $scope.params[1].value * a,
+                        rotation: $scope.params[1].value * a, // improve this lookup 
                         translation: a * $scope.params[2].value,
                         scale: (a / $scope.params[3].value),
                         background: colours[Math.ceil(Math.random() * colours.length)]
