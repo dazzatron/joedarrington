@@ -63,7 +63,7 @@ body {
 .main-avatar {
     position:absolute;
     top:50%;
-    right:0;
+    right:100px;
     height:300px;
     width:300px;
     border-radius:50%;
@@ -72,6 +72,7 @@ body {
     background:#fff;
     display:block;
     transition: 400ms cubic-bezier(0,.5,0,1.5);
+    z-index:10;
 }
 
 .main-avatar-speech {
@@ -346,10 +347,6 @@ a {
     font-weight:normal;
 }
 
-a:hover {
-    border-bottom:1px solid #fff;
-}
-
 .sidebar {
     position:fixed;
     top:0;
@@ -505,14 +502,12 @@ a:hover {
     opacity:0;
     perspective:800px;
     transform:scale(.9);
-    transition: 1500ms 1000ms;
-    -webkit-filter:blur(2px);
+    transition: 500ms 500ms;
 }
 
 .article.active .article-image {
     transform:scale(1);
     opacity:1;
-    -webkit-filter:blur(0);
 }
 
 .article-image img {
@@ -557,8 +552,8 @@ a:hover {
 
 
 .chunky-button1:hover {
-    background:#cc0;
-    color:#fff;
+    background:#111;
+    color:#ff3;
 }
 
 @media only screen and (max-width: 960px) {

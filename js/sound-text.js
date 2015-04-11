@@ -48,11 +48,11 @@
 	}
 
     //  drop dan stuff 
-
     var options = '';
     tracks.forEach(function(e) {
         options += '<option value="' + e.Path + '">' + e.Title + '</option>';
     });
+
 
     $('#track-selector').html(options);
 
