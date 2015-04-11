@@ -117,7 +117,7 @@ img {
 }
 
 .peak {
-    background:#ff0;
+    background:#333;
     -webkit-filter:blur(10px) !important;
 }
 
@@ -148,7 +148,7 @@ img {
     font-size:20px;
     line-height:100px;
     letter-spacing:1px;
-    text-shadow:2px 2px 2px #000;
+    text-shadow: 2px 2px 0 #000, 2px 2px 10px #000;
     color:#fff;
 }
 

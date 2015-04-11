@@ -3,7 +3,7 @@
     var tracks = [
         { Path: '/tracks/18545986', Title: 'Squarepusher - White Car' },
         { Path: '/tracks/136509428', Title: 'Amerie - One Thing (Housemate Remix)' },
-        { Path: '/tracks/528', Title: 'Track 3' }
+        { Path: '/tracks/2373725', Title: 'Pantera - Becoming' }
     ]; 
 
 	var text = [
@@ -21,6 +21,9 @@
 	var $body = $('body');
 	$body.append('<div class="text-wrapper"></div>');
 	$body.append('<div class="circle"></div>');
+
+	var $ts = $('#track-selector');
+	var $loader = $('.loader');
 
 	// loop text array
 	for (var a = 0, lengtha = text.length; a < lengtha; a++) {
@@ -53,10 +56,9 @@
         options += '<option value="' + e.Path + '">' + e.Title + '</option>';
     });
 
+    $ts.html(options);
 
-    $('#track-selector').html(options);
-
-    $('#track-selector').change(function () {
+    $ts.change(function () {
         playTrack($(this).val());
     });
 
@@ -90,10 +92,12 @@
             if (!currentWave) {
                 $circle.remove();
                 $text.remove();
+                $ts.remove();
+                alert("done!"); // yes yes... no!?
                 return;
             }
 
-            document.title = currentWave;
+            //document.title = currentWave;
 
             // circle always animates
             $circle.css({
@@ -184,30 +188,34 @@
     function playTrack(trackPath) {
 
         SC.streamStopAll();
-        $('.loader').show();
+        $loader.show();
+        $ts.attr('disabled', 'disabled');
 
         // start soundcloud
         SC.get(trackPath, function (track) {
 
+            // error handling???
             JSONP.get("http://www.waveformjs.org/w", {
                 url: track.waveform_url
             }, function (data) {
                 waveFormData = data;
                 setTimeout(function () {
-                    $('.loader').hide();
-                }, 2000);
+                    $loader.hide();
+                    $ts.removeAttr('disabled');
+                }, 1000);
             });
 
             SC.stream(track.uri, streamOptions, function (stream) {
                 setTimeout(function () {
                     stream.play();
-                }, 2000);
+                }, 1000);
 
             });
 
         });
     }
 
-    playTrack(tracks[1].Path);
+    // just change this to the selected???
+    playTrack(tracks[0].Path);
 
 });
